@@ -1,0 +1,14 @@
+**/.DS_Store
+.classpath
+.externalToolBuilders/
+.gwt/
+.project
+.settings/*
+.idea/**
+*.iml
+**/.svn/*
+bin/
+lib/
+local_db.bin
+target/
+war/

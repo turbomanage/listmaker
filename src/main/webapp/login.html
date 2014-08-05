@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!-- Consider inlining CSS to reduce the number of requested files -->
+    <link type="text/css" rel="stylesheet" href="/css/site.css">
+
+    <title></title>
+</head>
+<title>Listmaker</title>
+
+<body onload="document.getElementById('email').focus();">
+
+<div id="wrap">
+    <div id="header">
+
+    </div> <!-- header -->
+
+    <div id="signup">
+        <form action="/listmaker/login" method="post">
+            <fieldset>
+                <legend>Sign in</legend>
+                <div>
+                    <label for="email">Email</label><br/>
+                    <input name="email" id="email" type="text" tabindex="1"></input>
+                </div>
+                <div>
+                    <label for="password">Password</label><br/>
+                    <input name="password" id="password" type="password" tabindex="2"></input>
+                </div>
+                <div>
+                    <br/>
+                    <input type="submit" class="btn" name="go" value="Login" tabindex="4"/>
+                </div>
+                <div>
+                    Not a user? <a href="signup.html">Create a new account</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</div> <!-- wrap -->
+</body>
+</html>

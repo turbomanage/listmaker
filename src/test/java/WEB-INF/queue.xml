@@ -1,0 +1,14 @@
+<queue-entries>
+
+	<queue>
+		<name>user-mail-throttle</name>
+		<rate>8/m</rate>
+		<bucket-size>5</bucket-size>
+	</queue>
+
+	<queue>
+		<name>deferred</name>
+		<rate>10/s</rate>
+	</queue>
+
+</queue-entries>

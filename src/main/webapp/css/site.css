@@ -1,0 +1,503 @@
+/* eric meyer's reset reloaded, minus table elements */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend
+	/*, table, caption, tbody, tfoot, thead, tr, th, td */ {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: normal;
+	/*	vertical-align: baseline;
+	background: transparent;*/
+}
+
+body {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+input,textarea {
+	font-family: MS Shell Dlg, Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+
+textarea {
+	height: 32px;
+}
+
+form div {
+	clear: left;
+	padding: 1px;
+}
+
+form div label {
+	color: #666;
+	font-size: 0.8em;
+	font-weight: bold;
+	float: left;
+	width: 10%;
+	text-align: right;
+	margin-top: 2px;
+	padding-right: 5px;
+}
+
+form div input,form div textarea {
+	width: 85%;
+	float: left;
+}
+
+fieldset {
+	background-color: #f8f8f8;
+	border: 1px solid #f90;
+	padding: 0.6em;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+legend {
+	margin-left: 1em;
+	color: #c30;
+	font: 1em Arial;
+}
+
+#wrap {
+	position: relative;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ffffff;
+	/*
+	Needed in main and right later on if we switch back to IE6...
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	*/
+}
+
+#header {
+	position: relative;
+	margin-top: 1em;
+	height: 100px;
+	width: 100%;
+	margin-bottom: 1em;
+	padding-bottom: 9px;
+}
+
+#listmaker_links {
+	position: absolute;
+	left: 260px;
+}
+
+#listmaker_links ul {
+	display: inline;
+	white-space: nowrap;
+}
+
+#listmaker_links ul li {
+	display: inline;
+	margin-right: 3px;
+}
+
+#listmaker_links ul li img {
+	vertical-align: middle;
+	text-decoration: none;
+	margin-right: 3px;
+}
+
+#listmaker_links ul li a {
+	text-decoration: none;
+	color: #3399cc;
+}
+
+#listmaker_links ul li a:hover {
+	text-decoration: underline;
+}
+
+#user_links {
+	float: right;
+	text-align: right;
+}
+
+#user_links ul {
+	display: block;
+	white-space: nowrap;
+}
+
+#user_links ul li {
+	display: block;
+	font-size: 1em;
+	color: #333;
+	margin-left: 3px;
+	padding-bottom: 3px;
+}
+
+.nameText {
+	color: #900;
+	font-weight: bold;
+}
+
+#user_links ul li img {
+	vertical-align: middle;
+	text-decoration: none;
+	margin-left: 3px;
+}
+
+#user_links ul li a {
+	text-decoration: none;
+	color: #999;
+}
+
+#user_links ul li a:hover {
+	text-decoration: underline;
+}
+
+#site {
+	text-align: left;
+	width: 960px;
+	min-height: 300px;
+}
+
+#site ul,#site ol {
+	margin-left: 3em;
+}
+
+#connectBanner {
+    background-color: #36c;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    padding-bottom: 50px;
+}
+
+#banner {
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+}
+
+#connectBanner h1 {
+    font-size: 2em;
+    color: white;
+    padding-bottom: 20px;
+}
+
+#banner h1 {
+	font-size: 2em;
+	color: white;
+}
+
+#banner h2 {
+	font-size: 1.5em;
+	color: #ccf;
+}
+
+#banner h3 {
+    font-size: 1.5em;
+    color: #336699;
+    padding-bottom: 1em;
+}
+
+#banner-main {
+	margin-left: 105px;
+	text-align: left;
+}
+
+#connectBanner-main {
+    margin-left: 75px;
+    text-align: left;
+}
+
+#banner-list {
+	margin-left: 105px;
+	text-align: left;
+	font-size: 1.5em;
+	color: #cff;
+}
+
+#connectBanner-list {
+    margin-left: 195px;
+    text-align: left;
+    font-size: 1.5em;
+    color: #cff;
+    padding-bottom: 30px;
+}
+
+#banner-list .round {
+	font-size: 1.7em;
+	margin-right: .1em;
+	font-weight: bold;
+	vertical-align: baseline;
+}
+
+#banner-button-box {
+    position: relative;
+    top: 0px;
+    left: 355px;
+    text-align: center;
+    width: 250px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.button
+{
+    background-color            : #6CC655;
+    color                       : white;
+    font-size                   : 16px;
+    line-height                 : 44px;
+    margin-bottom               : 10px;
+    border-radius               : 3px;
+    padding-left                : 44px;
+    background-position         : 7px 7px;
+    background-size             : 30px 30px;
+    background-repeat           : no-repeat;
+    cursor                      : pointer;
+    display                     : block;
+    text-decoration             : none;
+}
+
+.button.google
+{
+    background-color            : #DF4B31;
+    color                       : white;
+    background-image            : url('../images/google.png');
+}
+.button.google:hover
+{
+    background-color            : #B9341D;
+}
+
+.button.twitter
+{
+    background-color            : #55ACEE;
+    color                       : white;
+    background-image            : url('../images/twitter.png');
+}
+.button.twitter:hover
+{
+    background-color            : #178DE8;
+}
+
+.button.facebook
+{
+    background-color            : #4963A4;
+    color                       : white;
+    background-image            : url('../images/facebook.png');
+}
+.button.facebook:hover
+{
+    background-color            : #3A4F82;
+}
+.button a {
+	color: white;
+	text-decoration: none;
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	background-color: #69f;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.below-button {
+	font-size: .9em;
+	font-weight: normal;
+	color: #fff;
+	margin-top: 20px;
+}
+
+#banner .below-button a {
+	color: white;
+}
+
+#signup_button_box {
+	float: right;
+	margin-top: -200px;
+	margin-right: 89px;
+}
+
+#signup_button_box .below-button {
+	text-align: center;
+	color: black;
+}
+
+#signup_button_box .below-button a {
+	color: #999;
+}
+
+#main {
+	float: right;
+	width: 760px;
+	padding-left: 0em;
+}
+
+#signup {
+	float: left;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	width: 400px;
+}
+
+#signup form div {
+	width: auto;
+	padding: 1px;
+}
+
+#signup form div input,#signup form div textarea {
+	width: 98%;
+}
+
+#signup label {
+	text-align: left;
+	white-space: nowrap;
+}
+
+#signup form input {
+	width: 20em;
+}
+
+#signup input.btn {
+	float: right;
+	width: 20%;
+}
+
+#signup #zip {
+	width: 100px;
+}
+
+#side {
+	float: left;
+	width: 175px;
+	min-height: 300px;
+	padding-right: 0em;
+}
+
+#app {
+	min-height: 300px;
+}
+
+#quick_links {
+	background-color: #eee;
+	padding: 1em;
+	border: solid #ccc 1px;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border: solid #ccc 1px;
+}
+
+#admin_links {
+	height: 200px;
+	border: solid #ccc 1px;
+	margin-top: 1em;
+}
+
+#separator {
+	clear: both;
+	height: 1em;
+}
+
+#footer {
+	clear: both;
+	border-top: solid #09c 2px;
+	padding: 10px 0;
+	text-align: center;
+}
+
+#footer li {
+	display: inline;
+	font-size: 0.9em;
+}
+
+#footer a {
+	text-decoration: none;
+	padding: 0 10px;
+	color: #999;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+	color: #3399cc;
+}
+
+#footer li.selected a {
+	font-weight: bold;
+}
+
+.copyright {
+	margin-top: 10px;
+	font-size: 10px;
+}
+
+#listmaker-message-panel {
+	height: 15px;
+	width: 100%;
+}
+
+#listmaker-message-panel table {
+	width: 100%;
+}
+
+#listmaker-message-panel td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+#loading { /*make visible*/
+	display: block;
+	/*set the div in the center of the screen*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	margin-left: -64px;
+}
+
+#listmaker-registration {
+	display: none;
+	padding: 20px;
+}
+
+#listmaker-registration .gwt-Label {
+	padding-top: 3px;
+}
+
+H1 {
+	color: #933;
+	font-size: 1.2em;
+	margin-bottom: .3em;
+}
+
+.listmaker-welcome {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.listmaker-welcome a {
+	color: #999;
+	font-size: small;
+}
+
+.listmaker-msgInfo {
+	font-weight: bold;
+	color: green;
+}
+
+.listmaker-msgErr {
+	font-weight: bold;
+	color: red;
+}
+
+.inline {
+	display: inline;
+}
+
+#donate_button {
+	float: right;
+	margin-top: 27px;
+	margin-right: 630px;
+}
