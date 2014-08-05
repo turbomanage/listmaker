@@ -13,7 +13,7 @@ The sample project is NOT open source. In exchange for payment, Turbomanage Corp
 Use the [issue tracker](https://github.com/turbomanage/listmaker/issues) to report bugs or request enhancements.
 
 ### Download the sample ###
- 1. Use the git clone command found on this page to clone the repo.
+ 1. ```git clone https://drfibonacci@bitbucket.org/drfibonacci/listmaker.git```
  1. If you don't already have it, [install Maven 3](http://maven.apache.org/download.cgi).
 
 ### Run the sample ###
