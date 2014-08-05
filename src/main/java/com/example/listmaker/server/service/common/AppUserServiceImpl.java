@@ -84,18 +84,14 @@ public class AppUserServiceImpl implements AppUserService {
         User u;
         try {
             u = userDao.getByProperty("emailAddress", email);
-            // TODO verify password hash here
-            try {
-                if (PasswordHash.validatePassword(password, u.getPasswordHash())) {
-                    return u;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            // verify password hash
+            if (PasswordHash.validatePassword(password, u.getPasswordHash())) {
+                return u;
             }
-            return null;
-        } catch (TooManyResultsException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return null;
     }
 
 }

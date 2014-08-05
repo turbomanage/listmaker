@@ -34,7 +34,6 @@ public class NewUserServlet extends HttpServlet
         newUser.setEmailAddress(email);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        // TODO hash the password!
         try {
             String hash = PasswordHash.createHash(password);
             newUser.setPasswordHash(hash);
