@@ -3,17 +3,12 @@
 A sample Web application using Google App Engine for Java, Objectify, and Jersey on the server along
 with GWT Activities & Places and Resty-GWT on the client.
 
-### LICENSE ###
-The sample project is NOT open source. In exchange for payment, Turbomanage Corp. grants you a non-transferable license
- to use and modify the source code in your own Web applications; however, you are not permitted to redistribute any
- part of the source code to others outside your company. Access to this repository is monitored.
- 
 ### Community ###
 
 Use the [issue tracker](https://github.com/turbomanage/listmaker/issues) to report bugs or request enhancements.
 
 ### Download the sample ###
- 1. ```git clone https://drfibonacci@bitbucket.org/drfibonacci/listmaker.git```
+ 1. ```git clone https://github.com/turbomanage/listmaker.git```
  1. If you don't already have it, [install Maven 3](http://maven.apache.org/download.cgi).
 
 ### Run the sample ###
