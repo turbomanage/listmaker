@@ -1,6 +1,5 @@
 package com.turbomanage.gwt.server.servlet;
 
-import com.google.inject.Singleton;
 import com.example.listmaker.common.domain.User;
 
 import javax.servlet.*;
@@ -9,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
-@Singleton
+
 public class AuthFilter implements Filter {
     private static final String LOGIN_FORM = "/login.html";
     public static final String USER_KEY = "loggedInUser";
@@ -80,6 +79,7 @@ public class AuthFilter implements Filter {
      * @param mockServletRequest
      * @param user
      */
+    // TODO eliminate this method--create alt filter impl for testing
     public static void testLogin(HttpServletRequest mockServletRequest, User user) {
         perThreadRequest.set(mockServletRequest);
         login(user, null);

@@ -6,7 +6,6 @@ import com.example.listmaker.app.client.domain.NoteList;
 import com.example.listmaker.app.client.event.NoteAddedEvent;
 import com.example.listmaker.app.client.event.NotesLoadedEvent;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.Random;
 import com.turbomanage.gwt.client.Display;
 import com.turbomanage.gwt.client.event.ShowMessageEvent;
 import com.turbomanage.gwt.client.rest.ListResponse;
