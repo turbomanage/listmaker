@@ -20,5 +20,5 @@ public interface HasSelectedValue<T> extends HasValue<T>
 
     void clearSelectedValue();
 	
-	T getSelectedValue();
+	T getValue();
 }

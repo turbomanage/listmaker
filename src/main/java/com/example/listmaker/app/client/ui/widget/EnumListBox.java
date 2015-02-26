@@ -33,7 +33,7 @@ public class EnumListBox<T extends Enum<T>> extends ListBox implements HasValue<
 		}
 	}
 
-	public T getSelectedValue()
+	public T getValue()
 	{
 		if (getSelectedIndex() >= 0)
 		{
@@ -68,12 +68,6 @@ public class EnumListBox<T extends Enum<T>> extends ListBox implements HasValue<
 	 * Methods to implement HasValue 
 	 */
 	
-	@Override
-	public T getValue()
-	{
-		return this.getSelectedValue();
-	}
-
 	@Override
 	public void setValue(T value)
 	{

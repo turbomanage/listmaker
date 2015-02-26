@@ -56,7 +56,7 @@ public class ManageNotesActivity extends ActivityPresenter<ManageNotesViewImpl> 
         eventBus.addHandler(NotesLoadedEvent.TYPE, new NotesLoadedEventHandler() {
             @Override
             public void onNotesLoaded(List<Note> items) {
-                NoteList currentList = App.getNoteListService().getNoteList(getView().getNoteListFilter().getSelectedValue().id);
+                NoteList currentList = App.getNoteListService().getNoteList(getView().getNoteListFilter().getValue().id);
                 getView().getNotesTable().inputNotes(filterNotes(currentList));
                 App.getEventBus().fireEvent(new ShowMessageEvent("NEW! Double click a note to edit!"));
             }

@@ -8,7 +8,6 @@
     <inherits name="com.google.gwt.activity.Activity"/>
     <source path="client" />
 	<source path="shared" />
-	<source path="domain" />
 	<source path="exception" />
 	<source path="presenter" />
 </module>

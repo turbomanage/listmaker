@@ -25,7 +25,6 @@ import com.example.listmaker.app.client.domain.User;
 import com.example.listmaker.app.client.mvp.AddNoteActivityMapper;
 import com.example.listmaker.app.client.mvp.AppActivityMapper;
 import com.example.listmaker.app.client.mvp.NavActivityMapper;
-import com.example.listmaker.app.client.mvp.UserActivityMapper;
 import com.example.listmaker.app.client.place.HomePlace;
 import com.example.listmaker.app.client.service.LoginInfoService;
 import org.fusesource.restygwt.client.Defaults;
@@ -38,7 +37,6 @@ public class ListmakerMvp implements EntryPoint {
     private static final String LOGOUT_URL = "/listmaker/logout";
     private SimplePanel addNote = new SimplePanel();
     private SimplePanel mainDisplay = new SimplePanel();
-    private SimplePanel userDisplay = new SimplePanel();
     private SimplePanel nav = new SimplePanel();
     private Place defaultPlace = new HomePlace(null);
 
@@ -77,10 +75,6 @@ public class ListmakerMvp implements EntryPoint {
         userLinks.appendChild(ul);
 
         //gwt-activities-and-places
-        ActivityMapper userActivityMapper = new UserActivityMapper();
-        ActivityManager userActivityManager = new ActivityManager(userActivityMapper, App.getEventBus());
-        userActivityManager.setDisplay(userDisplay);
-
         ActivityMapper addNoteActivityMapper = new AddNoteActivityMapper();
         ActivityManager addNoteActivityManager = new ActivityManager(addNoteActivityMapper, App.getEventBus());
         addNoteActivityManager.setDisplay(addNote);
@@ -97,7 +91,6 @@ public class ListmakerMvp implements EntryPoint {
         historyHandler.register(App.getClientFactory().getPlaceController(), App.getEventBus(), defaultPlace);
         DOM.removeChild(RootPanel.getBodyElement(), DOM.getElementById(AppStyles.ID_SPLASH));
 
-        RootPanel.get(AppStyles.BODY_PANEL_USER_ID).add(userDisplay);
         RootPanel.get(AppStyles.BODY_PANEL_TOP_ID).add(addNote);
         RootPanel.get(AppStyles.BODY_PANEL_CONTENT_ID).add(mainDisplay);
         RootPanel.get(AppStyles.BODY_PANEL_NAV_ID).add(nav);

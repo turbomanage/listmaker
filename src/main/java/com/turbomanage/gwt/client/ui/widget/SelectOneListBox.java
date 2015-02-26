@@ -52,7 +52,7 @@ public class SelectOneListBox<T> extends ListBox implements HasSelectedValue<T>
 	public void setSelections(Collection<T> selections)
 	{
 		// Remember selected value
-		T selectedValue = getSelectedValue();
+		T selectedValue = getValue();
 		// Remove prior options
 		if (options != null)
 		{
@@ -70,23 +70,6 @@ public class SelectOneListBox<T> extends ListBox implements HasSelectedValue<T>
 		}
 		// Replace selected value
 		setSelectedValue(selectedValue);
-	}
-
-	@Override
-	public T getSelectedValue()
-	{
-		if (getSelectedIndex() >= 0)
-		{
-			String name = getValue(getSelectedIndex());
-
-			for (T option : options)
-			{
-				if (formatter.getValue(option).equals(name))
-					return option;
-			}
-		}
-
-		return null;
 	}
 
 	private void setSelectedValue(T value)
@@ -113,7 +96,18 @@ public class SelectOneListBox<T> extends ListBox implements HasSelectedValue<T>
 	@Override
 	public T getValue()
 	{
-		return this.getSelectedValue();
+		if (getSelectedIndex() >= 0)
+		{
+			String name = getValue(getSelectedIndex());
+
+			for (T option : options)
+			{
+				if (formatter.getValue(option).equals(name))
+					return option;
+			}
+		}
+
+		return null;
 	}
 
 	@Override

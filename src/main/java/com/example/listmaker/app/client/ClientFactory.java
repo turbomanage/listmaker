@@ -18,7 +18,6 @@ public interface ClientFactory {
     AddNoteViewImpl getAddNoteView();
     ManageNotesViewImpl getManageNotesView();
     NewNoteListViewImpl getNewNoteListView();
-    UserViewImpl getUserView();
     NavViewImpl getNavView();
     ProfileViewImpl getProfileView();
 

@@ -1,12 +1,10 @@
 package com.example.listmaker.app.client;
 
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.web.bindery.event.shared.EventBus;
 import com.example.listmaker.app.client.ui.web.content.*;
 import com.example.listmaker.app.client.ui.web.nav.NavViewImpl;
-import com.example.listmaker.common.client.ui.web.ViewImpl;
 
 /**
  * Manages instances of Views.
@@ -20,7 +18,6 @@ public class ClientFactoryImpl implements ClientFactory {
     private static AddNoteViewImpl addNoteView;
     private static ManageNotesViewImpl manageNotesView;
     private static NewNoteListViewImpl newNoteListView;
-    private static UserViewImpl userView;
     private static NavViewImpl navView;
     private static ProfileViewImpl profileView;
 
@@ -64,14 +61,6 @@ public class ClientFactoryImpl implements ClientFactory {
             newNoteListView = new NewNoteListViewImpl();
         }
         return newNoteListView;
-    }
-
-    @Override
-    public UserViewImpl getUserView() {
-        if (userView == null) {
-            userView = new UserViewImpl();
-        }
-        return userView;
     }
 
     @Override
