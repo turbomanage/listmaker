@@ -35,6 +35,7 @@ public class ContactsActivity extends ActivityPresenter<ContactsView> implements
         svc.listAll(new AppCallback<ListResponse<Contact>>() {
             @Override
             public void handleSuccess(ListResponse<Contact> result) {
+                // TODO Rubén use GWT Provider (Async? List?)
                 getView().getStore().replaceAll(result.list);
             }
         });

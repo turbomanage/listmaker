@@ -22,16 +22,14 @@ import com.sencha.gxt.widget.core.client.container.FlowLayoutContainer;
  */
 public class ContactsViewImpl extends ViewImpl<ContactsView.Delegate> implements ContactsView {
 
+    // TODO Rubén replace GXT stuff with GWT CellTable
+
     // init store
     private final ContactProperties contactProperties = GWT.create(ContactProperties.class);
     private final ListStore<Contact> contactStore = new ListStore<Contact>(contactProperties.id());
 
     interface OurUiBinder extends UiBinder<Widget, ContactsViewImpl> { }
     private static OurUiBinder ourUiBinder = GWT.create(OurUiBinder.class);
-    @UiField
-    public CssFloatLayoutContainer.CssFloatData floatData;
-//    @UiField
-//    public FlowLayoutContainer flowLayoutContainer;
     @UiField
     public ListView<Contact, Contact> contactListView;
 
