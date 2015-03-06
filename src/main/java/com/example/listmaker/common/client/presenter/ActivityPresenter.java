@@ -13,9 +13,9 @@ public class ActivityPresenter<V extends View> extends AbstractActivity implemen
     private V view;
 
     @Override
-    public void setView(V view) {
+    public void bind(V view) {
         this.view = view;
-        view.setActivity(this);
+        view.setPresenter(this);
     }
 
     @Override

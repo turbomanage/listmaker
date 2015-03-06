@@ -27,6 +27,7 @@ public class ObjectifyDao<T> extends OfyService
 
 	public ObjectifyDao()
 	{
+		// Magic: extract the type of T from the generic
 		clazz = (Class<T>) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[0];
 	}

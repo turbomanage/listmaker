@@ -1,6 +1,10 @@
 package com.turbomanage.gwt.server.servlet;
 
 import com.example.listmaker.common.domain.User;
+import com.example.listmaker.common.domain.UserSession;
+import com.example.listmaker.server.auth.LoginHelper;
+import com.example.listmaker.server.domain.AuthCookie;
+import com.example.listmaker.server.service.common.AppUserService;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -33,17 +37,46 @@ public class AuthFilter implements Filter {
             if (getUser() != null) {
                 chain.doFilter(req, resp);
             } else {
+                // not logged in
                 // if an API call, return JSON response
                 if (path.startsWith("/listmaker/api")) {
                     ((HttpServletResponse) resp).setStatus(401);
                     resp.setContentType(MediaType.TEXT_PLAIN);
                     resp.getWriter().write("User must log in");
+                } else if (refreshPersistentSession(httpReq, httpRes)) {
+                    // TODO why doesn't this work here?
+                    chain.doFilter(req, resp);
                 } else {
                     // otherwise redirect
                     httpRes.sendRedirect(LOGIN_FORM);
                 }
             }
         }
+    }
+
+    /**
+     * Attempt to login using the authCookie. If successful, refresh the authCookie with new sessionId.
+     *
+     * @param httpReq
+     * @param httpRes
+     * @return true if authCookie is valid
+     */
+    private boolean refreshPersistentSession(HttpServletRequest httpReq, HttpServletResponse httpRes) {
+        AuthCookie authCookie = LoginHelper.getAuthCookie(httpReq);
+        if (authCookie != null) {
+            AppUserService userService = LoginHelper.getUserService();
+            UserSession userSession = userService.findSession(authCookie);
+            if (userSession != null) {
+                // login and refresh persistent session
+                User authUser = userSession.getOwnerKey().get();
+                login(authUser, null);
+                UserSession newSession = userService.replaceSession(authUser, userSession);
+                AuthCookie newAuthCookie = LoginHelper.makeSessionCookie(newSession);
+                httpRes.addCookie(newAuthCookie.getCookie());
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void login(User u, String accessToken) {
@@ -79,7 +112,7 @@ public class AuthFilter implements Filter {
      * @param mockServletRequest
      * @param user
      */
-    // TODO eliminate this method--create alt filter impl for testing
+// TODO eliminate this method--create alt filter impl for testing
     public static void testLogin(HttpServletRequest mockServletRequest, User user) {
         perThreadRequest.set(mockServletRequest);
         login(user, null);

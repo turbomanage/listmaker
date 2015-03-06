@@ -8,8 +8,13 @@ import com.example.listmaker.common.domain.User;
 import com.turbomanage.gwt.exception.TooManyResultsException;
 import com.turbomanage.gwt.server.servlet.AuthFilter;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletResponse;
+import javax.servlet.ServletResponseWrapper;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.xml.ws.ResponseWrapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +29,9 @@ import java.util.Map;
 @Produces(MediaType.APPLICATION_JSON)
 public class RestServiceDao<T extends Owned> extends ObjectifyDao<T>
 {
+
+    @Context
+    ServletContext servletContext;
 
     public T getForOwner() {
         User user = AuthFilter.getUser();

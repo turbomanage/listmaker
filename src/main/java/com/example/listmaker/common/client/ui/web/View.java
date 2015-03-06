@@ -11,13 +11,13 @@ import com.turbomanage.gwt.client.Display;
  */
 public interface View<P extends Presenter> extends Display {
 
-        void init();
-        HasText getViewHeading();
-        Image getViewIcon();
-        Widget asWidget();
-        void hide();
-        void show();
-        boolean isShowing();
+//    void init();
+//
+//    void hide();
+//
+//    void show();
 
-    void setActivity(P presenter);
+    Widget asWidget();
+
+    void setPresenter(P presenter);
 }

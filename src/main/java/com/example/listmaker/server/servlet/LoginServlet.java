@@ -1,8 +1,10 @@
 package com.example.listmaker.server.servlet;
 
 import com.example.listmaker.common.domain.User;
+import com.example.listmaker.common.domain.UserSession;
 import com.example.listmaker.server.auth.LoginHelper;
-import com.googlecode.objectify.Ref;
+import com.example.listmaker.server.domain.AuthCookie;
+import com.example.listmaker.server.service.common.AppUserService;
 import com.turbomanage.gwt.server.servlet.AuthFilter;
 
 import javax.servlet.ServletException;
@@ -22,7 +24,9 @@ public class LoginServlet extends HttpServlet {
         req.getSession().invalidate();
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        User registeredUser = LoginHelper.getUserService().tryLogin(email, password);
+        String rememberLogin = req.getParameter("remember");
+        AppUserService userService = LoginHelper.getUserService();
+        User registeredUser = userService.tryLogin(email, password);
         if (registeredUser == null) {
             // Invalid username or password
             resp.sendRedirect("/login.html");
@@ -30,6 +34,14 @@ public class LoginServlet extends HttpServlet {
         }
         // username and password matched
         AuthFilter.login(registeredUser, null);
+        // Store persistent cookie if "Remember me" checked
+        if (rememberLogin != null) {
+            AuthCookie oldAuthCookie = LoginHelper.getAuthCookie(req);
+            UserSession oldSession = userService.findSession(oldAuthCookie);
+            UserSession newSession = userService.replaceSession(registeredUser, oldSession);
+            AuthCookie newAuthCookie = LoginHelper.makeSessionCookie(newSession);
+            resp.addCookie(newAuthCookie.getCookie());
+        }
         resp.sendRedirect(LoginHelper.getAppUrl(req));
     }
 

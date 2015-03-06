@@ -1,0 +1,27 @@
+1,Chandler,David
+2,Chandler,Vicki
+3,Bush,George
+4,Hilton,Sam
+5,Loser,Biggest
+6,Dunda,Sam
+7,Humala,Ollanta
+8,Slim,Carlos
+9,Will,Whosoever
+10,Hussein,Sadam
+11,Manning,Peyton
+12,Brett,George
+13,Wilson,Rick
+14,Pilot,Kamikaze
+15,Hitler,Adolf
+16,The Bear,Smokey
+17,Rick,Ranger
+18,Audubon,James
+19,Bentley,Snowflake
+20,Deal,Nathan
+21,Rove,Karl
+22,Bunyan,Paul
+23,Frontier Foundation,Electronic
+24,Rice,Condoleeza
+25,Rice,Jasmine
+26,Chicken,General Tso's
+27,Bowl,Fire

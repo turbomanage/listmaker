@@ -3,7 +3,7 @@ package com.example.listmaker.app.client.mvp;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
-import com.example.listmaker.app.client.activity.*;
+import com.example.listmaker.app.client.presenter.*;
 import com.example.listmaker.app.client.place.*;
 
 /**
@@ -18,9 +18,7 @@ public class AppActivityMapper implements ActivityMapper {
     @Override
     public Activity getActivity(Place place) {
         if (place instanceof HomePlace) {
-            return new ManageNotesActivity((HomePlace) place);
-        } else if (place instanceof ProfilePlace) {
-            return new ProfileActivity((ProfilePlace) place);
+            return new ContactsActivity();
         }
         return null;
     }

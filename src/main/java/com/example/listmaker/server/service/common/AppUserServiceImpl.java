@@ -2,18 +2,21 @@ package com.example.listmaker.server.service.common;
 
 import ca.defuse.PasswordHash;
 import com.example.listmaker.common.domain.User;
-import com.example.listmaker.common.domain.UserPrefs;
+import com.example.listmaker.common.domain.UserSession;
 import com.example.listmaker.server.dao.UserDao;
-import com.example.listmaker.server.dao.UserPrefsDao;
+import com.example.listmaker.server.dao.UserSessionDao;
+import com.example.listmaker.server.domain.AuthCookie;
 import com.example.listmaker.server.exception.DuplicateUserException;
 import com.googlecode.objectify.Ref;
 import com.turbomanage.gwt.exception.TooManyResultsException;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 /**
@@ -54,13 +57,6 @@ public class AppUserServiceImpl implements AppUserService {
             u.setDateCreated(new Date());
             userKey = Ref.create(userDao.put(u));
             LOG.info("Added user with id = " + u.getId() + " and email = " + u.getEmailAddress());
-
-            // Add default prefs
-            UserPrefsDao userPrefsDao = new UserPrefsDao();
-            UserPrefs prefs = new UserPrefs();
-            prefs.setOwnerKey(userKey);
-            prefs.setWhos(new HashSet<String>());
-            userPrefsDao.put(prefs);
         }
         return userKey;
     }
@@ -89,7 +85,65 @@ public class AppUserServiceImpl implements AppUserService {
                 return u;
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+//            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
+    public UserSession findSession(AuthCookie authCookie) {
+        if (authCookie != null) {
+            String sessionId = authCookie.getSessionId();
+            String sessionHash = md5(sessionId);
+            String username = authCookie.getUsername();
+            UserSessionDao dao = new UserSessionDao();
+            UserSession userSession = dao.find(sessionHash, username);
+            return userSession;
+        }
+        return null;
+    }
+
+    @Override
+    public UserSession replaceSession(User registeredUser, UserSession oldSession) {
+        // Generate new persistent session for user
+        UserSession newSession = newSession(registeredUser);
+        UserSessionDao dao = new UserSessionDao();
+        dao.put(newSession);
+        // Delete old session if found
+        removeSession(oldSession);
+        return newSession;
+    }
+
+    @Override
+    public void logout(UserSession userSession) {
+
+    }
+
+    private UserSession newSession(User u) {
+        Ref<User> userKey = Ref.create(u);
+        String username = u.getEmailAddress();
+        String sessionId = UUID.randomUUID().toString();
+        String sessionHash = md5(sessionId);
+        UserSession newSession = new UserSession(userKey, sessionId, sessionHash, username);
+        return newSession;
+    }
+
+    public void removeSession(UserSession oldSession) {
+        if (oldSession != null)
+        {
+            new UserSessionDao().delete(oldSession);
+        }
+    }
+
+    public static String md5(String sessionId) {
+        MessageDigest md5 = null;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
+            byte[] digest = md5.digest(sessionId.getBytes());
+            String hash = new BigInteger(digest).toString(36);
+            return hash;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
         return null;
     }

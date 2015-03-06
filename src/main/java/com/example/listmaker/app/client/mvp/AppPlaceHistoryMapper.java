@@ -12,7 +12,6 @@ import com.example.listmaker.app.client.place.*;
  * Created by Gene on 6/5/2014.
  */
 @WithTokenizers({
-        HomePlace.Tokenizer.class,
-        ProfilePlace.Tokenizer.class})
+        HomePlace.Tokenizer.class})
 public interface AppPlaceHistoryMapper extends PlaceHistoryMapper {
 }

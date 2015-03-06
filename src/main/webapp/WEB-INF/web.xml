@@ -115,7 +115,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
 
     <!-- Default page to serve -->
     <welcome-file-list>
-        <welcome-file>login.html</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
 
     <security-constraint>

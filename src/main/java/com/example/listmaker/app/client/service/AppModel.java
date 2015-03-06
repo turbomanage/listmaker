@@ -1,6 +1,5 @@
 package com.example.listmaker.app.client.service;
 
-import com.example.listmaker.app.client.domain.Note;
 import com.example.listmaker.app.client.domain.User;
 
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.List;
 public class AppModel
 {
     private User me;
-	private List<Note> allNotes;
 
     public User getMe() {
         return me;
@@ -26,15 +24,5 @@ public class AppModel
     public void setMe(User me) {
         this.me = me;
     }
-
-	public List<Note> getAllNotes()
-	{
-		return allNotes;
-	}
-
-	public void setAllNotes(List<Note> allNotes)
-	{
-		this.allNotes = allNotes;
-	}
 
 }

@@ -1,0 +1,27 @@
+<ui:UiBinder
+        xmlns:ui='urn:ui:com.google.gwt.uibinder'
+        xmlns:g="urn:import:com.google.gwt.user.client.ui"
+        xmlns:c="urn:import:com.sencha.gxt.widget.core.client.container"
+        xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+        xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+        xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
+        xmlns:menu="urn:import:com.sencha.gxt.widget.core.client.menu"
+        xmlns:chart="urn:import:com.sencha.gxt.chart.client.chart">
+
+        <ui:style>
+                div.listview {
+                        width: 20em;
+                        margin-left: auto;
+                        margin-right: auto;
+                }
+                .listview div {
+                        font-size: 2em;
+                        line-height: 1.2;
+                }
+        </ui:style>
+        <ui:with field="floatData" type="com.sencha.gxt.widget.core.client.container.CssFloatLayoutContainer.CssFloatData">
+                <ui:attributes size="1"/>
+        </ui:with>
+        <gxt:ListView ui:field="contactListView" styleName="{style.listview}" />
+        <!--<gxt:ListView ui:field="contactListView" debugId="listview" />-->
+</ui:UiBinder>

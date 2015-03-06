@@ -11,10 +11,8 @@ import com.example.listmaker.common.domain.*;
 public class OfyService {
 
     static {
-        ObjectifyService.register(Note.class);
-        ObjectifyService.register(NoteList.class);
         ObjectifyService.register(User.class);
-        ObjectifyService.register(UserPrefs.class);
+        ObjectifyService.register(UserSession.class);
     }
 
     public static Objectify ofy() {

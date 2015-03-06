@@ -29,9 +29,6 @@ public class App {
 
     private static final Logger rootLogger = Logger.getLogger("");
 
-    // services
-    private static final NoteService clientNoteItemService = new NoteService();
-    private static final NoteListService noteListService = new NoteListService();
 
     private App() {
         // prevent instantiation
@@ -39,14 +36,6 @@ public class App {
 
     public static Logger getLogger() {
         return rootLogger;
-    }
-
-    public static NoteService getClientNoteItemService() {
-        return clientNoteItemService;
-    }
-
-    public static NoteListService getNoteListService() {
-        return noteListService;
     }
 
     public static PlaceHistoryMapper getPlaceHistoryMapper() {

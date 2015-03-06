@@ -8,7 +8,7 @@ import com.example.listmaker.common.client.ui.web.View;
 public interface Presenter<V extends View> {
 
 
-    public void setView(V view);
+    public void bind(V view);
 
     public V getView();
 }
