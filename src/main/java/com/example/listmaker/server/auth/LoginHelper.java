@@ -21,7 +21,7 @@ public abstract class LoginHelper {
     private static final Logger log = Logger.getLogger( LoginHelper.class.getName() );
 
     protected static final String APPLICATION_NAME = "Listmaker";
-    private static final String APP_URL = "/listmaker/app/index.html";
+    private static final String APP_URL = "/listmaker/index.jsp";
     public static final String AUTH_COOKIE_KEY = "authCookie";
     protected static final AppUserService appUserSvc = new AppUserServiceImpl();
 

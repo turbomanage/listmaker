@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         User registeredUser = userService.tryLogin(email, password);
         if (registeredUser == null) {
             // Invalid username or password
-            resp.sendRedirect("/login.html");
+            resp.sendRedirect(AuthFilter.LOGIN_FORM);
             return;
         }
         // username and password matched

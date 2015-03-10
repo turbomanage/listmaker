@@ -7,7 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import java.util.logging.Logger;
 
-@Path("api/contact")
+@Path("contact")
 public class ContactDao extends RestServiceDao<Contact>
 {
 	private static final Logger LOG = Logger.getLogger(ContactDao.class.getName());

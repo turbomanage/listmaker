@@ -14,7 +14,7 @@ import java.io.IOException;
 
 
 public class AuthFilter implements Filter {
-    private static final String LOGIN_FORM = "/login.html";
+    public static final String LOGIN_FORM = "/login.html";
     public static final String USER_KEY = "loggedInUser";
     public static final String TOKEN = "token";
 
@@ -44,7 +44,6 @@ public class AuthFilter implements Filter {
                     resp.setContentType(MediaType.TEXT_PLAIN);
                     resp.getWriter().write("User must log in");
                 } else if (refreshPersistentSession(httpReq, httpRes)) {
-                    // TODO why doesn't this work here?
                     chain.doFilter(req, resp);
                 } else {
                     // otherwise redirect
