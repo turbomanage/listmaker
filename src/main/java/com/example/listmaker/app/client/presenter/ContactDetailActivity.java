@@ -13,13 +13,17 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
  */
 public class ContactDetailActivity extends ActivityPresenter<ContactDetailView> implements Activity {
 
+    private final int contactIndex;
+
     public ContactDetailActivity(ContactDetailPlace place) {
         // Extract id from token and find this record
+        contactIndex = place.getSelectedContactIdx();
     }
 
     @Override
     public void start(AcceptsOneWidget acceptsOneWidget, EventBus eventBus) {
         bind(App.clientFactory().getContactDetailView());
         super.start(acceptsOneWidget, eventBus);
+        getView().setContact(App.model().getContactStore().get(contactIndex));
     }
 }

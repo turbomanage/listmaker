@@ -9,9 +9,9 @@ import com.example.listmaker.app.client.place.*;
  * PlaceHistoryHandler should be aware of. This is done via the @WithTokenizers
  * annotation or by extending PlaceHistoryMapperWithFactory and creating a
  * separate TokenizerFactory.
- * Created by Gene on 6/5/2014.
  */
 @WithTokenizers({
-        ContactsPlace.Tokenizer.class})
+        ContactsPlace.Tokenizer.class,
+        ContactDetailPlace.Tokenizer.class})
 public interface AppPlaceHistoryMapper extends PlaceHistoryMapper {
 }

@@ -14,5 +14,4 @@ public interface ContactsView extends View<ContactsView.Delegate> {
         void addContact(Contact contact);
     }
 
-    public ListStore<Contact> getStore();
 }

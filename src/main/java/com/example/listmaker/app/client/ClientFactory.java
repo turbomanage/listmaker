@@ -10,9 +10,7 @@ import com.google.web.bindery.event.shared.EventBus;
  */
 public interface ClientFactory {
 
-    EventBus getEventBus();
-    PlaceController getPlaceController();
-
     ContactsView getContactsView();
     ContactDetailView getContactDetailView();
+
 }

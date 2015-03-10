@@ -1,6 +1,10 @@
 package com.example.listmaker.app.client.service;
 
+import com.example.listmaker.app.client.domain.ContactProperties;
 import com.example.listmaker.app.client.domain.User;
+import com.example.listmaker.common.domain.Contact;
+import com.google.gwt.core.client.GWT;
+import com.sencha.gxt.data.shared.ListStore;
 
 import java.util.List;
 
@@ -16,6 +20,8 @@ import java.util.List;
 public class AppModel
 {
     private User me;
+    private final ContactProperties contactProperties = GWT.create(ContactProperties.class);
+    private final ListStore<Contact> contactStore = new ListStore<Contact>(contactProperties.id());
 
     public User getMe() {
         return me;
@@ -25,4 +31,7 @@ public class AppModel
         this.me = me;
     }
 
+    public ListStore<Contact> getContactStore() {
+        return contactStore;
+    }
 }

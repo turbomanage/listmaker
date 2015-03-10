@@ -8,15 +8,14 @@ import com.google.gwt.place.shared.PlaceTokenizer;
  */
 public class ContactDetailPlace extends Place {
 
-    private String token;
+    private final int selectedContactIdx;
 
-    public ContactDetailPlace(String token) {
-        this.token = token;
+    public ContactDetailPlace(int i) {
+        this.selectedContactIdx = i;
     }
 
-    public String getToken() {
-        return token;
-
+    public int getSelectedContactIdx() {
+        return this.selectedContactIdx;
     }
 
     public static class Tokenizer implements PlaceTokenizer<ContactDetailPlace>
@@ -24,13 +23,13 @@ public class ContactDetailPlace extends Place {
         @Override
         public String getToken(ContactDetailPlace place)
         {
-            return place.getToken();
+            return String.valueOf(place.getSelectedContactIdx());
         }
 
         @Override
         public ContactDetailPlace getPlace(String token)
         {
-            return new ContactDetailPlace(token);
+            return new ContactDetailPlace(Integer.parseInt(token));
         }
     }
 

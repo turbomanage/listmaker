@@ -47,7 +47,7 @@ public class ListmakerMvp implements EntryPoint {
         loginInfoService.login(GWT.getHostPageBaseURL(), new AppCallback<User>() {
             @Override
             public void handleSuccess(User me) {
-                App.getAppModel().setMe(me);
+                App.model().setMe(me);
                 loadApp();
             }
         });
@@ -56,11 +56,11 @@ public class ListmakerMvp implements EntryPoint {
     private void loadApp() {
         //gwt-activities-and-places
         ActivityMapper mainActivityMapper = new AppActivityMapper();
-        ActivityManager mainActivityManager = new ActivityManager(mainActivityMapper, App.getEventBus());
+        ActivityManager mainActivityManager = new ActivityManager(mainActivityMapper, App.eventBus());
         mainActivityManager.setDisplay(mainDisplay);
 
-        PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(App.getPlaceHistoryMapper());
-        historyHandler.register(App.clientFactory().getPlaceController(), App.getEventBus(), defaultPlace);
+        PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(App.historyMapper());
+        historyHandler.register(App.placeController(), App.eventBus(), defaultPlace);
         DOM.removeChild(RootPanel.getBodyElement(), DOM.getElementById(AppStyles.ID_SPLASH));
 
         RootPanel.get(AppStyles.BODY_PANEL_CONTENT_ID).add(mainDisplay);
@@ -69,7 +69,7 @@ public class ListmakerMvp implements EntryPoint {
     }
 
     private void addLoggers() {
-        App.getEventBus().addHandler(ValueChangeEvent.getType(), new ValueChangeHandler<String>() {
+        App.eventBus().addHandler(ValueChangeEvent.getType(), new ValueChangeHandler<String>() {
             @Override
             public void onValueChange(ValueChangeEvent<String> event) {
                 App.getLogger().finest("VCE " + event.getValue());

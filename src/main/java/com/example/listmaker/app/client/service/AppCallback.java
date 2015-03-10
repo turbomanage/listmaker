@@ -37,7 +37,7 @@ public abstract class AppCallback<R> implements MethodCallback<R> {
         for (StackTraceElement element : e.getStackTrace()) {
             s += element + "\n";
         }
-        App.getEventBus().fireEvent(new ShowMessageEvent("An error has occurred", MessageWidget.MessageType.WARN));
+        App.eventBus().fireEvent(new ShowMessageEvent("An error has occurred", MessageWidget.MessageType.WARN));
     }
 
     public abstract void handleSuccess(R result);

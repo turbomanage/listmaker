@@ -34,6 +34,7 @@ public class ContactDetailViewImpl extends ViewImpl<ContactDetailView.Delegate> 
 
     @Override
     public void setContact(Contact contact) {
-
+        firstName.setText(contact.getFirstName());
+        lastName.setText(contact.getLastName());
     }
 }

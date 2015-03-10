@@ -28,7 +28,7 @@ public class ContactsActivity extends ActivityPresenter<ContactsView> implements
         svc.listAll(new AppCallback<ListResponse<Contact>>() {
             @Override
             public void handleSuccess(ListResponse<Contact> result) {
-                getView().getStore().replaceAll(result.list);
+                App.model().getContactStore().replaceAll(result.list);
             }
         });
         // add event handlers

@@ -13,20 +13,8 @@ import com.google.web.bindery.event.shared.EventBus;
  */
 public class ClientFactoryImpl implements ClientFactory {
 
-    private final EventBus eventBus = new SimpleEventBus();
-    private final PlaceController placeController = new PlaceController(eventBus);
     private ContactsView contactsView;
     private ContactDetailView contactDetailView;
-
-    @Override
-    public EventBus getEventBus() {
-        return eventBus;
-    }
-
-    @Override
-    public PlaceController getPlaceController() {
-        return placeController;
-    }
 
     @Override
     public ContactsView getContactsView() {
