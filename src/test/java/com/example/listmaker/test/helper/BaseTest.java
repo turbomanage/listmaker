@@ -5,8 +5,6 @@ import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestC
 import com.google.appengine.tools.development.testing.LocalMemcacheServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 import com.google.appengine.tools.development.testing.LocalTaskQueueTestConfig;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 import com.example.listmaker.common.domain.User;
 import com.turbomanage.gwt.server.servlet.AuthFilter;
 import junit.framework.TestCase;
@@ -22,7 +20,6 @@ import java.util.HashMap;
  */
 public abstract class BaseTest extends TestCase {
 
-    private static Injector inj;
     protected LocalServiceTestHelper helper;
     private LocalDatastoreServiceTestConfig datastoreConfig;
     private LocalMemcacheServiceTestConfig memcacheConfig;

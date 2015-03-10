@@ -33,7 +33,8 @@ public class ContactsViewImpl extends ViewImpl<ContactsView.Delegate> implements
         listView.addDomHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent clickEvent) {
-                Element element = clickEvent.getRelativeElement();
+                // I so love GWT
+                Element element = Element.as(clickEvent.getNativeEvent().getEventTarget());
                 int i = listView.findElementIndex(element);
                 App.placeController().goTo(new ContactDetailPlace(i));
             }
