@@ -6,11 +6,11 @@ import com.google.gwt.place.shared.PlaceTokenizer;
 /**
  * Created by Gene on 6/5/2014.
  */
-public class HomePlace extends Place {
+public class ContactsPlace extends Place {
 
     private String token;
 
-    public HomePlace(String token) {
+    public ContactsPlace(String token) {
         this.token = token;
 
     }
@@ -20,18 +20,18 @@ public class HomePlace extends Place {
 
     }
 
-    public static class Tokenizer implements PlaceTokenizer<HomePlace>
+    public static class Tokenizer implements PlaceTokenizer<ContactsPlace>
     {
         @Override
-        public String getToken(HomePlace place)
+        public String getToken(ContactsPlace place)
         {
             return place.getToken();
         }
 
         @Override
-        public HomePlace getPlace(String token)
+        public ContactsPlace getPlace(String token)
         {
-            return new HomePlace(token);
+            return new ContactsPlace(token);
         }
     }
 

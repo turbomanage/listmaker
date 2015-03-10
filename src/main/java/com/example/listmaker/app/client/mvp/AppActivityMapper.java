@@ -17,8 +17,10 @@ public class AppActivityMapper implements ActivityMapper {
 
     @Override
     public Activity getActivity(Place place) {
-        if (place instanceof HomePlace) {
+        if (place instanceof ContactsPlace) {
             return new ContactsActivity();
+        } else if (place instanceof ContactDetailPlace) {
+            return new ContactDetailActivity((ContactDetailPlace) place);
         }
         return null;
     }

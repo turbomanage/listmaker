@@ -1,4 +1,4 @@
-package com.example.listmaker.app.client.api;
+package com.example.listmaker.app.client.ui.mobile;
 
 import com.example.listmaker.common.client.presenter.Presenter;
 import com.example.listmaker.common.client.ui.web.View;

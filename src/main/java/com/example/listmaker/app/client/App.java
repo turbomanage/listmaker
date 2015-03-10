@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 
 /**
  * Use this to get images, constants, model, and messages
- * Created by Gene on 6/5/2014.
  */
 public class App {
 
@@ -22,13 +21,13 @@ public class App {
     private static AppMessages appMessages;
     private static AppImages appImages;
 
-    private static ClientFactory clientFactory;
-    private static DispatcherFactory dispatcherFactory = new DispatcherFactory();
+    private static final ClientFactory clientFactory = new ClientFactoryImpl();
+    private static final ServiceFactory serviceFactory = new ServiceFactoryImpl();
+    private static final DispatcherFactory dispatcherFactory = new DispatcherFactory();
 
     private static PlaceHistoryMapper placeHistoryMapper;
 
     private static final Logger rootLogger = Logger.getLogger("");
-
 
     private App() {
         // prevent instantiation
@@ -46,14 +45,15 @@ public class App {
     }
 
     public static EventBus getEventBus() {
-        return getClientFactory().getEventBus();
+        return clientFactory().getEventBus();
     }
 
-    public static ClientFactory getClientFactory() {
-        if (clientFactory == null) {
-            clientFactory = new ClientFactoryImpl();
-        }
+    public static ClientFactory clientFactory() {
         return clientFactory;
+    }
+
+    public static ServiceFactory serviceFactory() {
+        return serviceFactory;
     }
 
     public static AppModel getAppModel() {

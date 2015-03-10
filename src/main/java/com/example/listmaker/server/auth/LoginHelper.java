@@ -60,9 +60,11 @@ public abstract class LoginHelper {
      */
     public static Cookie getCookie(HttpServletRequest req, String cookieName) {
         final Cookie[] cookies = req.getCookies();
-        for (Cookie c : cookies) {
-            if (c.getName().equals(cookieName)) {
-                return c;
+        if (cookies != null) {
+            for (Cookie c : cookies) {
+                if (c.getName().equals(cookieName)) {
+                    return c;
+                }
             }
         }
         return null;

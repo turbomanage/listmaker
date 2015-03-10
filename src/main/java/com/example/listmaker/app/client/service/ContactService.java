@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 /**
  * Created by david on 2/26/15.
  */
-@Path("contact")
+@Path("api/contact")
 public interface ContactService extends RestApi<Contact> {
 
 }
