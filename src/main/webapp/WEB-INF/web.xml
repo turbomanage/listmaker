@@ -103,16 +103,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
         <url-pattern>/listmaker/logout</url-pattern>
     </servlet-mapping>
 
-    <!-- remote logging -->
-    <servlet>
-        <servlet-name>remoteLogging</servlet-name>
-        <servlet-class>com.google.gwt.logging.server.RemoteLoggingServiceImpl</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>remoteLogging</servlet-name>
-        <url-pattern>/listmaker/remote_logging</url-pattern>
-    </servlet-mapping>
-
     <!-- Default page to serve -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
