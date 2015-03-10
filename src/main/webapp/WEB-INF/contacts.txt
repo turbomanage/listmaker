@@ -12,7 +12,7 @@
 12,Brett,George
 13,Wilson,Rick
 14,Pilot,Kamikaze
-15,Hitler,Adolf
+15,Kennedy,D James
 16,The Bear,Smokey
 17,Rick,Ranger
 18,Audubon,James
