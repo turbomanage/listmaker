@@ -1,12 +1,14 @@
 package com.example.listmaker.common.client.presenter;
 
+import com.example.listmaker.common.client.ui.web.View;
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.example.listmaker.common.client.ui.web.View;
+
+import java.util.logging.Logger;
 
 /**
- * Created by Gene on 6/5/2014.
+ * Base class for Activity acting as a presenter
  */
 public class ActivityPresenter<V extends View> extends AbstractActivity implements Presenter<V> {
 
@@ -25,7 +27,14 @@ public class ActivityPresenter<V extends View> extends AbstractActivity implemen
 
     @Override
     public void start(AcceptsOneWidget acceptsOneWidget, EventBus eventBus) {
+        Logger.getLogger("activitypresetner").info("ugh");
         acceptsOneWidget.setWidget(getView().asWidget());
+//            Widget widget = getView().asWidget();
+//            widget.setVisible(false);
+//        $("#presenting").as(Effects).slideLeft(2000);
+//        acceptsOneWidget.setWidget(widget);
+
+//            widget.getElement().<FxElement> cast().slideIn(Style.Direction.LEFT);
     }
 
 }

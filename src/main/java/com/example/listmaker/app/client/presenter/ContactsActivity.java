@@ -7,6 +7,7 @@ import com.example.listmaker.app.client.service.AppCallback;
 import com.example.listmaker.common.client.presenter.ActivityPresenter;
 import com.example.listmaker.common.domain.Contact;
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.turbomanage.gwt.client.rest.ListResponse;
 
