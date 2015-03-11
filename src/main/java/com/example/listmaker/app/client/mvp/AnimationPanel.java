@@ -37,6 +37,7 @@ public class AnimationPanel extends Composite implements AnimatedDisplay {
         if (thisPanel.getWidget() != null) {
             lastPanel.addStyleName(Bundle.INSTANCE.css().out());
             thisPanel.addStyleName(Bundle.INSTANCE.css().in());
+            //TODO use onAnimationEnd event instead
             Timer timer = new Timer() {
                 @Override
                 public void run() {
