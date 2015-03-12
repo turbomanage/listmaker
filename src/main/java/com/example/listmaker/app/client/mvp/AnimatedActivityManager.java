@@ -16,7 +16,7 @@ import com.google.web.bindery.event.shared.EventBus;
  */
 public class AnimatedActivityManager extends ActivityManager {
 
-    private AnimatedDisplay animatedDisplay;
+    private AnimatedPanel animatedPanel;
 
     public AnimatedActivityManager(ActivityMapper mapper, EventBus eventBus) {
         super(mapper, eventBus);
@@ -25,19 +25,19 @@ public class AnimatedActivityManager extends ActivityManager {
     @Override
     public void onPlaceChange(PlaceChangeEvent event) {
         super.onPlaceChange(event);
-        if (animatedDisplay != null) {
-            animatedDisplay.animate();
+        if (animatedPanel != null) {
+            animatedPanel.animate();
         }
     }
 
-    public void setAnimatedDisplay(AnimatedDisplay animatedDisplay) {
+    public void setAnimatedPanel(AnimatedPanel animatedDisplay) {
         setDisplay(animatedDisplay);
-        this.animatedDisplay = animatedDisplay;
+        this.animatedPanel = animatedDisplay;
     }
 
     @Override
     public void setDisplay(AcceptsOneWidget display) {
-        if (animatedDisplay == null) {
+        if (animatedPanel == null) {
             super.setDisplay(display);
         } else {
             Window.alert("Don't call setDisplay() on AnimatedActivityManager");

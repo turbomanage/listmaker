@@ -5,10 +5,7 @@ import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.*;
 
 import static com.google.gwt.query.client.GQuery.$;
 import static com.google.gwt.query.client.GQuery.Effects;
@@ -16,13 +13,13 @@ import static com.google.gwt.query.client.GQuery.Effects;
 /**
  * Created by david on 3/10/15.
  */
-public class AnimationPanel extends Composite implements AnimatedDisplay {
+public class AnimatedPanel extends Composite implements AcceptsOneWidget {
 
     private FlowPanel flowPanel = new FlowPanel();
     private SimplePanel lastPanel = new SimplePanel();
     private SimplePanel thisPanel = new SimplePanel();
 
-    public AnimationPanel() {
+    public AnimatedPanel() {
         flowPanel.setStyleName(Bundle.INSTANCE.css().display());
         lastPanel.addStyleName(Bundle.INSTANCE.css().displayContainer());
         thisPanel.addStyleName(Bundle.INSTANCE.css().displayContainer());
@@ -31,10 +28,10 @@ public class AnimationPanel extends Composite implements AnimatedDisplay {
         initWidget(flowPanel);
     }
 
-    @Override
-    public void animate() {
+    protected void animate() {
         //TODO why not lastPanel?
-        if (thisPanel.getWidget() != null) {
+        if (lastPanel.getWidget() != null) {
+            Window.alert("match");
             lastPanel.addStyleName(Bundle.INSTANCE.css().out());
             thisPanel.addStyleName(Bundle.INSTANCE.css().in());
             //TODO use onAnimationEnd event instead
