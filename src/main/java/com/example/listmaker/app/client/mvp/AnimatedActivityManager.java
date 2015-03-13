@@ -2,9 +2,7 @@ package com.example.listmaker.app.client.mvp;
 
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
-import com.google.gwt.place.shared.PlaceChangeEvent;
-import com.google.gwt.place.shared.PlaceChangeRequestEvent;
-import com.google.gwt.user.client.Window;
+import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.EventBus;
 
@@ -14,28 +12,19 @@ import com.google.web.bindery.event.shared.EventBus;
  *
  * Created by david on 3/10/15.
  */
-public class AnimatedActivityManager implements PlaceChangeEvent.Handler, PlaceChangeRequestEvent.Handler {
+public class AnimatedActivityManager {
 
     private final ActivityManager wrapped;
-    private final AnimatedPanel animatedPanel = new AnimatedPanel();
+    private final AnimatedPanel animatedPanel = new AnimatedPanel(this);
 
-    public AnimatedActivityManager(ActivityMapper mapper, EventBus eventBus) {
+    public AnimatedActivityManager(ActivityMapper mapper, EventBus eventBus, PlaceHistoryMapper historyMapper) {
         wrapped = new ActivityManager(mapper, eventBus);
+//        this.historyMapper = historyMapper;
     }
 
     public void setDisplay(AcceptsOneWidget display) {
         display.setWidget(animatedPanel);
         wrapped.setDisplay(animatedPanel);
-    }
-
-    @Override
-    public void onPlaceChange(PlaceChangeEvent event) {
-        wrapped.onPlaceChange(event);
-    }
-
-    @Override
-    public void onPlaceChangeRequest(PlaceChangeRequestEvent placeChangeRequestEvent) {
-        wrapped.onPlaceChangeRequest(placeChangeRequestEvent);
     }
 
 }

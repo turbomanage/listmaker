@@ -17,7 +17,18 @@ public class ContactsPlace extends Place {
 
     public String getToken() {
         return token;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if ((obj != null) && (obj instanceof ContactsPlace)) {
+            ContactsPlace place = (ContactsPlace) obj;
+            Tokenizer tokenizer = new Tokenizer();
+            String placeToken = tokenizer.getToken(place);
+            String thisToken = tokenizer.getToken(this);
+            return thisToken.equals(placeToken);
+        }
+        return false;
     }
 
     public static class Tokenizer implements PlaceTokenizer<ContactsPlace>

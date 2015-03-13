@@ -27,14 +27,7 @@ public class ActivityPresenter<V extends View> extends AbstractActivity implemen
 
     @Override
     public void start(AcceptsOneWidget acceptsOneWidget, EventBus eventBus) {
-        Logger.getLogger("activitypresetner").info("ugh");
         acceptsOneWidget.setWidget(getView().asWidget());
-//            Widget widget = getView().asWidget();
-//            widget.setVisible(false);
-//        $("#presenting").as(Effects).slideLeft(2000);
-//        acceptsOneWidget.setWidget(widget);
-
-//            widget.getElement().<FxElement> cast().slideIn(Style.Direction.LEFT);
     }
 
 }

@@ -56,7 +56,7 @@ public class ListmakerMvp implements EntryPoint {
     private void loadApp() {
         //gwt-activities-and-places
         ActivityMapper mainActivityMapper = new AppActivityMapper();
-        AnimatedActivityManager mainActivityManager = new AnimatedActivityManager(mainActivityMapper, App.eventBus());
+        AnimatedActivityManager mainActivityManager = new AnimatedActivityManager(mainActivityMapper, App.eventBus(), App.historyMapper());
         mainActivityManager.setDisplay(mainDisplay);
 
         PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(App.historyMapper());
