@@ -22,6 +22,7 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import org.fusesource.restygwt.client.Defaults;
 
 /**
@@ -30,8 +31,7 @@ import org.fusesource.restygwt.client.Defaults;
 public class ListmakerMvp implements EntryPoint {
 
     private static final String LOGOUT_URL = "/listmaker/logout";
-//    private ContentPanel mainDisplay = new ContentPanel();
-    private AnimatedPanel mainDisplay = new AnimatedPanel();
+    private SimplePanel mainDisplay = new SimplePanel();
     private Place defaultPlace = new ContactsPlace(null);
 
     /**
@@ -57,8 +57,7 @@ public class ListmakerMvp implements EntryPoint {
         //gwt-activities-and-places
         ActivityMapper mainActivityMapper = new AppActivityMapper();
         AnimatedActivityManager mainActivityManager = new AnimatedActivityManager(mainActivityMapper, App.eventBus());
-        mainActivityManager.setAnimatedPanel(mainDisplay);
-//        mainActivityManager.setDisplay(mainDisplay);
+        mainActivityManager.setDisplay(mainDisplay);
 
         PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(App.historyMapper());
         historyHandler.register(App.placeController(), App.eventBus(), defaultPlace);

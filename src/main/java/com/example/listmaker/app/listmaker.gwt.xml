@@ -31,6 +31,7 @@
     <inherits name='com.google.gwt.query.Query'/>
     <inherits name="org.fusesource.restygwt.RestyGWT"/>
     <inherits name="com.google.gwt.logging.Logging"/>
+    <inherits name="com.googlecode.mgwt.ui.Animation" />
     <!-- for IDs in UiBinder -->
     <inherits name="com.google.gwt.user.Debug"/>
 
