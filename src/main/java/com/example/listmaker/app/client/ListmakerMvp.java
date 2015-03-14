@@ -6,7 +6,6 @@ package com.example.listmaker.app.client;
 
 import com.example.listmaker.app.client.domain.User;
 import com.example.listmaker.app.client.mvp.AnimatedActivityManager;
-import com.example.listmaker.app.client.mvp.AnimatedPanel;
 import com.example.listmaker.app.client.mvp.AppActivityMapper;
 import com.example.listmaker.app.client.place.ContactsPlace;
 import com.example.listmaker.app.client.service.AppCallback;
@@ -56,7 +55,7 @@ public class ListmakerMvp implements EntryPoint {
     private void loadApp() {
         //gwt-activities-and-places
         ActivityMapper mainActivityMapper = new AppActivityMapper();
-        AnimatedActivityManager mainActivityManager = new AnimatedActivityManager(mainActivityMapper, App.eventBus(), App.historyMapper());
+        AnimatedActivityManager mainActivityManager = new AnimatedActivityManager(mainActivityMapper, App.eventBus(), App.historyMapper(), App.placeController());
         mainActivityManager.setDisplay(mainDisplay);
 
         PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(App.historyMapper());

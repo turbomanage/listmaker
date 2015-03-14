@@ -1,47 +1,50 @@
 package com.example.listmaker.app.client.mvp;
 
-import com.example.listmaker.app.client.App;
 import com.google.gwt.core.shared.GWT;
+import com.google.gwt.place.shared.Place;
+import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.CssResource;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.googlecode.mgwt.ui.client.widget.animation.impl.AnimationEndEvent;
 import com.googlecode.mgwt.ui.client.widget.animation.impl.AnimationEndHandler;
 
 import java.util.Stack;
-import java.util.logging.Logger;
-
-import static com.google.gwt.query.client.GQuery.$;
 
 /**
+ * A special container which AcceptsOneWidget so it can work with GWT Activities
+ * but uses two SimplePanels under the covers in order to show an animation from
+ * one activity to the next. Inspired by MGWT's AnimationActivityManager. This
+ * one automatically keeps track of place history and reverses the animation
+ * whenever going backward in the stack.
+ *
  * Created by david on 3/10/15.
  */
-public class AnimatedPanel extends Composite implements AcceptsOneWidget, AnimationEndHandler {
+public class AnimatedActivityPanel extends Composite implements AcceptsOneWidget, AnimationEndHandler {
 
-    private FlowPanel flowPanel = new FlowPanel();
-    private SimplePanel lastPanel = new SimplePanel();
-    private SimplePanel thisPanel = new SimplePanel();
-    private AnimatedActivityManager activityManager;
-    private int lastHistorySize;
+    private final AnimatedActivityManager activityMgr;
+    private final FlowPanel flowPanel = new FlowPanel();
+    private final SimplePanel lastPanel = new SimplePanel();
+    private final SimplePanel thisPanel = new SimplePanel();
     private final Stack<String> history = new Stack<String>();
+    private int lastHistorySize;
 
-    public AnimatedPanel(AnimatedActivityManager animatedActivityManager) {
-        this.activityManager = animatedActivityManager;
+    public AnimatedActivityPanel(AnimatedActivityManager animatedActivityManager) {
+        this.activityMgr = animatedActivityManager;
         flowPanel.setStyleName(Bundle.INSTANCE.css().display());
-        lastPanel.getElement().setId("lastPanel");
-        thisPanel.getElement().setId("thisPanel");
         lastPanel.addStyleName(Bundle.INSTANCE.css().displayContainer());
         thisPanel.addStyleName(Bundle.INSTANCE.css().displayContainer());
         flowPanel.add(lastPanel);
         flowPanel.add(thisPanel);
         initWidget(flowPanel);
-        getElement().setId("animatedPanel");
         addDomHandler(this, AnimationEndEvent.getType());
     }
 
     protected void animate() {
+        // if there is a previous place
         if (lastPanel.getElement().hasChildNodes()) {
+            // if going backwards, reverse the animation
             if (history.size() < this.lastHistorySize) {
                 lastPanel.addStyleName(Bundle.INSTANCE.css().reverse());
                 thisPanel.addStyleName(Bundle.INSTANCE.css().reverse());
@@ -72,12 +75,14 @@ public class AnimatedPanel extends Composite implements AcceptsOneWidget, Animat
     }
 
     private void updateHistory() {
-        // save history
+        // save place history so we can reverse the transition when going backwards
         int size = this.lastHistorySize = history.size();
-        Logger.getLogger("AAM").info("size before = " + history.size());
-        String newToken = App.historyMapper().getToken(App.placeController().getWhere());
-        int priorIndex = history.search(newToken) - 1; // GWT bug?
-        // if this place token has been seen before, move backwards to it
+        PlaceHistoryMapper historyMapper = activityMgr.getHistoryMapper();
+        PlaceController placeController = activityMgr.getPlaceController();
+        Place currentPlace = placeController.getWhere();
+        String newToken = historyMapper.getToken(currentPlace);
+        int priorIndex = history.search(newToken) - 1; // GWT bug in Stack.search?
+        // if this place token has been seen before, pop the stack back to it
         if (priorIndex > 0) {
             for (int i=size; i>priorIndex; i--) {
                 history.pop();
@@ -85,7 +90,6 @@ public class AnimatedPanel extends Composite implements AcceptsOneWidget, Animat
         } else {
             history.push(newToken);
         }
-        Logger.getLogger("AAM").info("size after = " + history.size());
     }
 
     @Override
