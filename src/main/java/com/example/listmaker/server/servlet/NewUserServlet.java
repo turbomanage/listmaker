@@ -1,7 +1,7 @@
 package com.example.listmaker.server.servlet;
 
 import ca.defuse.PasswordHash;
-import com.example.listmaker.common.domain.User;
+import com.example.listmaker.app.shared.domain.User;
 import com.example.listmaker.server.auth.LoginHelper;
 import com.example.listmaker.server.exception.DuplicateUserException;
 import com.example.listmaker.server.service.common.AppUserService;

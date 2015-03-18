@@ -1,7 +1,7 @@
 package com.turbomanage.gwt.server.servlet;
 
-import com.example.listmaker.common.domain.User;
-import com.example.listmaker.common.domain.UserSession;
+import com.example.listmaker.app.shared.domain.User;
+import com.example.listmaker.server.domain.UserSession;
 import com.example.listmaker.server.auth.LoginHelper;
 import com.example.listmaker.server.domain.AuthCookie;
 import com.example.listmaker.server.service.common.AppUserService;

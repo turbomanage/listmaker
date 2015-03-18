@@ -1,4 +1,4 @@
-package com.example.listmaker.common.domain;
+package com.example.listmaker.app.shared.domain;
 
 import com.googlecode.objectify.Ref;
 

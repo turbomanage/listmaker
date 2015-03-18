@@ -1,6 +1,6 @@
 package com.example.listmaker.server.dao;
 
-import com.example.listmaker.common.domain.Contact;
+import com.example.listmaker.app.shared.domain.Contact;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.WebApplicationException;

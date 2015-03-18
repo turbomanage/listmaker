@@ -1,15 +1,13 @@
 package com.example.listmaker.server.auth;
 
-import com.example.listmaker.common.domain.UserSession;
+import com.example.listmaker.server.domain.UserSession;
 import com.example.listmaker.server.domain.AuthCookie;
 import com.example.listmaker.server.service.common.AppUserService;
 import com.example.listmaker.server.service.common.AppUserServiceImpl;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.googlecode.objectify.Ref;
-import com.example.listmaker.common.domain.User;
+import com.example.listmaker.app.shared.domain.User;
 import com.example.listmaker.server.exception.DuplicateUserException;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.logging.Logger;

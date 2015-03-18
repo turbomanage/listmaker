@@ -1,5 +1,7 @@
-package com.example.listmaker.common.domain;
+package com.example.listmaker.server.domain;
 
+import com.example.listmaker.app.shared.domain.Owned;
+import com.example.listmaker.app.shared.domain.User;
 import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;

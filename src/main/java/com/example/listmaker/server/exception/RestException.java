@@ -1,6 +1,6 @@
 package com.example.listmaker.server.exception;
 
-import com.example.listmaker.shared.ExceptionWrapper;
+import com.example.listmaker.app.shared.ExceptionWrapper;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;

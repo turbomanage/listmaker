@@ -1,8 +1,8 @@
 package com.example.listmaker.server.service.common;
 
 import ca.defuse.PasswordHash;
-import com.example.listmaker.common.domain.User;
-import com.example.listmaker.common.domain.UserSession;
+import com.example.listmaker.app.shared.domain.User;
+import com.example.listmaker.server.domain.UserSession;
 import com.example.listmaker.server.dao.UserDao;
 import com.example.listmaker.server.dao.UserSessionDao;
 import com.example.listmaker.server.domain.AuthCookie;
@@ -14,7 +14,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;

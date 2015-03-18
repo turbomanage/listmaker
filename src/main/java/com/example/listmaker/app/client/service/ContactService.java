@@ -1,6 +1,6 @@
 package com.example.listmaker.app.client.service;
 
-import com.example.listmaker.common.domain.Contact;
+import com.example.listmaker.app.shared.domain.Contact;
 import com.turbomanage.gwt.client.rest.RestApi;
 
 import javax.ws.rs.Path;

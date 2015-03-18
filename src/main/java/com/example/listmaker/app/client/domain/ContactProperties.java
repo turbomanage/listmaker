@@ -1,6 +1,6 @@
 package com.example.listmaker.app.client.domain;
 
-import com.example.listmaker.common.domain.Contact;
+import com.example.listmaker.app.shared.domain.Contact;
 import com.sencha.gxt.core.client.ValueProvider;
 import com.sencha.gxt.data.shared.ModelKeyProvider;
 import com.sencha.gxt.data.shared.PropertyAccess;

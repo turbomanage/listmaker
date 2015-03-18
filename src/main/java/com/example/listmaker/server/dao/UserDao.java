@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.logging.Logger;
 
 import com.googlecode.objectify.Key;
-import com.example.listmaker.common.domain.User;
+import com.example.listmaker.app.shared.domain.User;
 import com.turbomanage.gwt.server.servlet.AuthFilter;
 
 import javax.ws.rs.GET;

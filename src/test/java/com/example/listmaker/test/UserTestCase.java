@@ -1,6 +1,6 @@
 package com.example.listmaker.test;
 
-import com.example.listmaker.common.domain.User;
+import com.example.listmaker.app.shared.domain.User;
 import com.example.listmaker.server.dao.UserDao;
 import com.example.listmaker.server.service.common.AppUserService;
 import com.example.listmaker.server.service.common.AppUserServiceFactory;

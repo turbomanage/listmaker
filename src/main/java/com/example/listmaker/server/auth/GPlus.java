@@ -23,7 +23,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson.JacksonFactory;
 import com.google.api.services.plus.Plus;
 import com.google.api.services.plus.model.Person;
-import com.example.listmaker.common.domain.User;
+import com.example.listmaker.app.shared.domain.User;
 import com.example.listmaker.server.exception.DuplicateUserException;
 import com.example.listmaker.server.exception.RestException;
 import com.turbomanage.gwt.server.servlet.AuthFilter;

@@ -1,13 +1,13 @@
 package com.example.listmaker.app.client.presenter;
 
 import com.example.listmaker.app.client.App;
+import com.example.listmaker.app.client.place.ContactDetailPlace;
 import com.example.listmaker.app.client.service.ContactService;
 import com.example.listmaker.app.client.ui.mobile.ContactsView;
 import com.example.listmaker.app.client.service.AppCallback;
 import com.example.listmaker.common.client.presenter.ActivityPresenter;
-import com.example.listmaker.common.domain.Contact;
+import com.example.listmaker.app.shared.domain.Contact;
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.turbomanage.gwt.client.rest.ListResponse;
 
@@ -36,8 +36,8 @@ public class ContactsActivity extends ActivityPresenter<ContactsView> implements
     }
 
     @Override
-    public void addContact(Contact contact) {
-
+    public void newContact() {
+        App.placeController().goTo(new ContactDetailPlace(-1));
     }
 
 }

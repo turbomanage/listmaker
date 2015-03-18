@@ -3,7 +3,7 @@ package com.example.listmaker.app.client.ui.mobile;
 import com.example.listmaker.app.client.App;
 import com.example.listmaker.app.client.place.ContactDetailPlace;
 import com.example.listmaker.common.client.ui.web.ViewImpl;
-import com.example.listmaker.common.domain.Contact;
+import com.example.listmaker.app.shared.domain.Contact;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -11,6 +11,8 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiFactory;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.core.client.IdentityValueProvider;
 import com.sencha.gxt.widget.core.client.ListView;
@@ -26,6 +28,8 @@ public class ContactsViewImpl extends ViewImpl<ContactsView.Delegate> implements
     private static OurUiBinder ourUiBinder = GWT.create(OurUiBinder.class);
     @UiField
     public ListView<Contact, Contact> contactListView;
+    @UiField
+    public Button newButton;
 
     @UiFactory
     public ListView<Contact, Contact> makeListView() {
@@ -46,4 +50,8 @@ public class ContactsViewImpl extends ViewImpl<ContactsView.Delegate> implements
         initWidget(ourUiBinder.createAndBindUi(this));
     }
 
+    @UiHandler("newButton")
+    public void onClickNewContact(ClickEvent e) {
+        getPresenter().newContact();
+    }
 }

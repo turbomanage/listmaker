@@ -1,6 +1,6 @@
 package com.example.listmaker.server.dao;
 
-import com.example.listmaker.common.domain.UserSession;
+import com.example.listmaker.server.domain.UserSession;
 import com.google.appengine.api.datastore.QueryResultIterator;
 
 /**

@@ -1,8 +1,8 @@
 package com.example.listmaker.server.dao;
 
+import com.example.listmaker.app.shared.domain.User;
 import com.google.appengine.api.datastore.QueryResultIterator;
 import com.googlecode.objectify.*;
-import com.example.listmaker.common.domain.*;
 import com.turbomanage.gwt.exception.TooManyResultsException;
 
 import java.lang.reflect.Modifier;

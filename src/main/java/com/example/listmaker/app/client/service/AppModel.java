@@ -1,12 +1,10 @@
 package com.example.listmaker.app.client.service;
 
 import com.example.listmaker.app.client.domain.ContactProperties;
-import com.example.listmaker.app.client.domain.User;
-import com.example.listmaker.common.domain.Contact;
+import com.example.listmaker.app.shared.domain.Contact;
+import com.example.listmaker.app.shared.domain.User;
 import com.google.gwt.core.client.GWT;
 import com.sencha.gxt.data.shared.ListStore;
-
-import java.util.List;
 
 /**
  * Singleton that represents the current state of the UI. Getters

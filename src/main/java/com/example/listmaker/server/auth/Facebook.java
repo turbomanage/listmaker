@@ -1,7 +1,7 @@
 package com.example.listmaker.server.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.listmaker.common.domain.User;
+import com.example.listmaker.app.shared.domain.User;
 import com.example.listmaker.server.exception.DuplicateUserException;
 import com.example.listmaker.server.exception.RestException;
 import com.turbomanage.gwt.server.servlet.AuthFilter;

@@ -1,9 +1,10 @@
 package com.example.listmaker.server.dao;
 
+import com.example.listmaker.server.domain.UserSession;
+import com.example.listmaker.app.shared.domain.User;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
-import com.example.listmaker.common.domain.*;
 
 /**
  * Created by david on 7/3/14.

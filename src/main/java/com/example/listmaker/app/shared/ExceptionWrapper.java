@@ -1,4 +1,4 @@
-package com.example.listmaker.shared;
+package com.example.listmaker.app.shared;
 
 import java.io.Serializable;
 

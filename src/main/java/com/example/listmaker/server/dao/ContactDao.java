@@ -1,6 +1,6 @@
 package com.example.listmaker.server.dao;
 
-import com.example.listmaker.common.domain.Contact;
+import com.example.listmaker.app.shared.domain.Contact;
 import com.example.listmaker.common.domain.ListWrapper;
 
 import javax.ws.rs.GET;

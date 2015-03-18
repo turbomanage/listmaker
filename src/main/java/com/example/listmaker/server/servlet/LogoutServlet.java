@@ -1,7 +1,5 @@
 package com.example.listmaker.server.servlet;
 
-import com.example.listmaker.common.domain.User;
-import com.example.listmaker.server.auth.LoginHelper;
 import com.turbomanage.gwt.server.servlet.AuthFilter;
 
 import javax.servlet.ServletException;

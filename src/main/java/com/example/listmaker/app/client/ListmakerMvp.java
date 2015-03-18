@@ -4,13 +4,13 @@
 
 package com.example.listmaker.app.client;
 
-import com.example.listmaker.app.client.domain.User;
 import com.example.listmaker.app.client.mvp.AnimatedActivityManager;
 import com.example.listmaker.app.client.mvp.AppActivityMapper;
 import com.example.listmaker.app.client.place.ContactsPlace;
 import com.example.listmaker.app.client.service.AppCallback;
 import com.example.listmaker.app.client.service.LoginInfoService;
 import com.example.listmaker.common.client.ui.web.AppStyles;
+import com.example.listmaker.app.shared.domain.User;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;

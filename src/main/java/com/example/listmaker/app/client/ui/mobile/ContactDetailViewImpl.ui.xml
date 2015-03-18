@@ -50,10 +50,10 @@
         </c:VerticalLayoutContainer>
 
         <gxt:button>
-            <button:TextButton text="Save"/>
+            <button:TextButton ui:field="saveButton" text="Save"/>
         </gxt:button>
         <gxt:button>
-            <button:TextButton text="Cancel"/>
+            <button:TextButton ui:field="cancelButton" text="Cancel"/>
         </gxt:button>
 
     </gxt:FramedPanel>

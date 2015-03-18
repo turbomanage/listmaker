@@ -9,16 +9,21 @@
         xmlns:chart="urn:import:com.sencha.gxt.chart.client.chart">
 
         <ui:style>
-                div.listview {
-                        /*width: 20em;*/
-                        /*margin-left: auto;*/
-                        /*margin-right: auto;*/
-                }
-                .listview div {
+                .big div {
                         font-size: 2em;
                         line-height: 1.2;
                 }
+                button.menu {
+                    float: right;
+                    font-size: 3em;
+                    text-align: right;
+                }
         </ui:style>
 
-        <gxt:ListView ui:field="contactListView" styleName="{style.listview}" />
+        <g:FlowPanel>
+            <g:FlowPanel>
+                <g:Button styleName="{style.menu}" ui:field="newButton">+</g:Button>
+            </g:FlowPanel>
+            <gxt:ListView ui:field="contactListView" styleName="{style.big}" />
+        </g:FlowPanel>
 </ui:UiBinder>
