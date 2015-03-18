@@ -6,47 +6,56 @@
         xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
         xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
         xmlns:menu="urn:import:com.sencha.gxt.widget.core.client.menu"
-        xmlns:chart="urn:import:com.sencha.gxt.chart.client.chart">
+        xmlns:chart="urn:import:com.sencha.gxt.chart.client.chart" xmlns:client="http://www.w3.org/1999/html">
 
     <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
              field="verticalLayoutData">
-        <ui:attributes width="1" height="-1"/>
+        <ui:attributes width="1" height="-1" />
     </ui:with>
 
-    <gxt:ContentPanel>
+    <ui:style>
+        .space {
+            padding: 1em;
+        }
+    </ui:style>
 
-        <g:VerticalPanel spacing="10">
+    <gxt:FramedPanel borders="false" headerVisible="false" styleName="{style.space}">
 
-            <c:VerticalLayoutContainer>
+        <c:VerticalLayoutContainer>
 
-                <c:child layoutData="{verticalLayoutData}">
-                    <form:FieldLabel text="First">
-                        <form:widget>
-                            <form:TextField ui:field="firstName" allowBlank="false" emptyText="First name..."/>
-                        </form:widget>
-                    </form:FieldLabel>
-                </c:child>
+            <c:child layoutData="{verticalLayoutData}">
+                <form:FieldLabel text="First name" labelSeparator="" />
+            </c:child>
 
-                <c:child layoutData="{verticalLayoutData}">
-                    <form:FieldLabel text="Last">
-                        <form:widget>
-                            <form:TextField ui:field="lastName" allowBlank="false" emptyText="Last name..."/>
-                        </form:widget>
-                    </form:FieldLabel>
-                </c:child>
+            <c:child layoutData="{verticalLayoutData}">
+                <form:TextField ui:field="firstName" allowBlank="false" emptyText="First name..."/>
+            </c:child>
 
-                <c:child layoutData="{verticalLayoutData}">
-                    <form:FieldLabel text="Email">
-                        <form:widget>
-                            <form:TextField ui:field="email" emptyText="Email..."/>
-                        </form:widget>
-                    </form:FieldLabel>
-                </c:child>
+            <c:child layoutData="{verticalLayoutData}">
+                <form:FieldLabel text="Last name" labelSeparator="" />
+            </c:child>
 
-            </c:VerticalLayoutContainer>
+            <c:child layoutData="{verticalLayoutData}">
+                <form:TextField ui:field="lastName" allowBlank="false" emptyText="Last name..."/>
+            </c:child>
 
-        </g:VerticalPanel>
+            <c:child layoutData="{verticalLayoutData}">
+                <form:FieldLabel text="Email" labelSeparator="" />
+            </c:child>
 
-    </gxt:ContentPanel>
+            <c:child layoutData="{verticalLayoutData}">
+                <form:TextField ui:field="email" emptyText="Email..."/>
+            </c:child>
+
+        </c:VerticalLayoutContainer>
+
+        <gxt:button>
+            <button:TextButton text="Save"/>
+        </gxt:button>
+        <gxt:button>
+            <button:TextButton text="Cancel"/>
+        </gxt:button>
+
+    </gxt:FramedPanel>
 
 </ui:UiBinder>

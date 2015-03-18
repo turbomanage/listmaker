@@ -6,6 +6,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
+import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import static com.google.gwt.query.client.GQuery.*;
 
@@ -27,6 +28,10 @@ public class ContactDetailViewImpl extends ViewImpl<ContactDetailView.Delegate> 
     public TextField lastName;
     @UiField
     public TextField email;
+//    @UiField
+//    public TextButton saveButton;
+//    @UiField
+//    public TextButton cancelButton;
 
     @Override
     public Contact getContact() {

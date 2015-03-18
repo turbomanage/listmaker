@@ -19,5 +19,6 @@
                         line-height: 1.2;
                 }
         </ui:style>
+
         <gxt:ListView ui:field="contactListView" styleName="{style.listview}" />
 </ui:UiBinder>
