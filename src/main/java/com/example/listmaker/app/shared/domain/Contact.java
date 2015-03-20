@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 /**
  * Created by david on 2/26/15.
@@ -12,17 +13,18 @@ import com.googlecode.objectify.annotation.Id;
 public class Contact implements Owned {
 
     @Id
-    private long id;
+    private Long id;
     @JsonIgnore
+    @Index
     private Ref<User> ownerKey;
     private String firstName;
     private String lastName;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

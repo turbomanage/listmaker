@@ -1,7 +1,10 @@
 package com.turbomanage.gwt.client.rest;
 
 import org.fusesource.restygwt.client.MethodCallback;
+import org.fusesource.restygwt.client.Options;
 import org.fusesource.restygwt.client.RestService;
+import org.fusesource.restygwt.client.dispatcher.DefaultDispatcher;
+import org.fusesource.restygwt.client.dispatcher.DefaultFilterawareDispatcher;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
